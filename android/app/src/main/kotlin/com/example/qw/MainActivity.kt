@@ -1,4 +1,4 @@
-package com.example.nails_app
+package com.example.qw
 
 import io.flutter.embedding.android.FlutterActivity
 

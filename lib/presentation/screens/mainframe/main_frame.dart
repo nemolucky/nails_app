@@ -35,7 +35,7 @@ class _MainFrameState extends State<MainFrame> {
       body: currentBody(),
       bottomNavigationBar: CustomBottomNavigationBar(
         screenController: screenController,
-        )
+      )
     );
   }
 }

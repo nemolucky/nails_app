@@ -43,7 +43,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       backgroundColor: Colors.white,
       showUnselectedLabels: false,
       elevation: 8,
-      selectedItemColor: Color.fromARGB(255, 189, 153, 181),
+      selectedItemColor: Color.fromRGBO(66, 127, 189, 1),
     );
   }
 
@@ -65,7 +65,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       width: 28,
       height: 28,
       colorFilter: ColorFilter.mode(
-            Color.fromARGB(255, 189, 153, 181),
+            Color.fromRGBO(66, 127, 189, 1),
             BlendMode.srcIn,
           ),
     );

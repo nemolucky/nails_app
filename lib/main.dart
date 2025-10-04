@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:nails_app/presentation/screens/mainframe/main_frame.dart';
-
+import 'package:flutter/services.dart';
+import 'package:nails_app/app/app.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(
-      home: MainFrame(),
-    ),
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(const NailsApp());
 }
 

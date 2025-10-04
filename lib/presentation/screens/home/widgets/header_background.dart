@@ -5,8 +5,8 @@ class HeaderBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 250),
+    return Container(
+      constraints: BoxConstraints(maxHeight: 200),
       child: ShaderMask(
         shaderCallback: (Rect bounds) {
           return LinearGradient(
@@ -19,7 +19,7 @@ class HeaderBackground extends StatelessWidget {
         blendMode: BlendMode.dstIn,
         child: Image.asset(
           "assets/images/home_background.jpg",
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.cover,
           width: double.infinity,
         ),
       ),

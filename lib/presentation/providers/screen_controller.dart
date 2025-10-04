@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nails_app/presentation/screens/calendar/calendar_screen.dart';
-import 'package:nails_app/presentation/screens/error/error_screen.dart';
-import 'package:nails_app/presentation/screens/home/home_screen.dart';
-import 'package:nails_app/presentation/screens/records/records_screen.dart';
+import 'package:nails_app/presentation/screens/screens.dart';
 
 enum Screen{
   home,

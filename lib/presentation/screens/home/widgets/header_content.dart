@@ -7,8 +7,8 @@ class HeaderContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          flex: 2,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SizedBox(
             width: 100,
             height: 100,
@@ -19,7 +19,7 @@ class HeaderContent extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 3,
+          flex: 1,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
