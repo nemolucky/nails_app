@@ -5,7 +5,6 @@ enum Screen{
   home,
   records,
   calendar,
-  error
 }
 
 extension ScreenExtension on Screen {
@@ -17,8 +16,6 @@ extension ScreenExtension on Screen {
         return RecordsScreen();
       case Screen.calendar:
         return CalendarScreen();
-      case Screen.error:
-        return ErrorScreen();
     }
   }
 }

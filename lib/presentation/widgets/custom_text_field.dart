@@ -5,11 +5,13 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.hintText,
+    required this.horizontalPadding,
     required this.textFieldStyle,
     required this.textEditingController,
   });
 
   final String hintText;
+  final double horizontalPadding;
   final CustomTextFieldStyle textFieldStyle;
   final TextEditingController textEditingController;
 
@@ -17,7 +19,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.width * 0.125,
+        horizontal: horizontalPadding,
       ),
       child: TextField(
         controller: textEditingController,

@@ -5,12 +5,12 @@ class CustomTextFieldStyle {
 
   //TODO: добавить параметр для errorBorder
 
-  final Color? backgroundColor;
-  final TextStyle? textStyle;
-  final TextStyle? hintStyle;
-  final InputBorder? border;
-  final InputBorder? focusBorder;
-  final BoxConstraints? constraints;
+  final Color backgroundColor;
+  final TextStyle textStyle;
+  final TextStyle hintStyle;
+  final InputBorder border;
+  final InputBorder focusBorder;
+  final BoxConstraints constraints;
   final CursorStyle cursorStyle;
 
   CustomTextFieldStyle({

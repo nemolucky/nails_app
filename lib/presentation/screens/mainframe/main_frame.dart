@@ -10,32 +10,73 @@ class MainFrame extends StatefulWidget {
 }
 
 class _MainFrameState extends State<MainFrame> {
-  late ScreenController screenController;
+  late ScreenController _screenController;
+  late PageController _pageController;
 
   @override
   void initState() {
-    screenController = ScreenController();
-    screenController.addListener(() => setState(() {}));
+    _screenController = ScreenController();
+    _pageController = PageController();
+    
+    _screenController.addListener(() {
+      if (_screenController.currentScreen.index != _pageController.page?.round()) {
+        _pageController.animateToPage(
+          _screenController.currentScreen.index,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+        );
+      }
+      setState(() {});
+    });
+    
     super.initState();
   }
 
   @override
-  void dispose(){
-    screenController.dispose();
+  void dispose() {
+    _screenController.dispose();
+    _pageController.dispose();
     super.dispose();
-  }
-
-  Widget currentBody() {
-    return screenController.currentScreen.widget;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: currentBody(),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          _screenController.changeScreen(Screen.values[index]);
+        },
+        physics: const BouncingScrollPhysics(),
+        children: Screen.values.map((screen) => screen.widget).toList(),
+      ),
       bottomNavigationBar: CustomBottomNavigationBar(
-        screenController: screenController,
-      )
+        screenController: _screenController,
+      ),
     );
   }
 }
+
+//TODO: изменить физику добавить ее в тему
+// class CustomBouncingScrollPhysics extends BouncingScrollPhysics {
+//   final Color glowColor;
+  
+//   const CustomBouncingScrollPhysics({
+//     required this.glowColor,
+//     super.parent,
+//   });
+
+//   @override
+//   CustomBouncingScrollPhysics applyTo(ScrollPhysics? ancestor) {
+//     return CustomBouncingScrollPhysics(
+//       glowColor: glowColor,
+//       parent: buildParent(ancestor),
+//     );
+//   }
+
+//   @override
+//   double get minFlingVelocity => 50.0; // Можно настроить чувствительность
+
+//   @override
+//   double get maxFlingVelocity => 500.0;
+// }

@@ -22,6 +22,7 @@ class AuthToggle extends StatefulWidget {
 class _AuthToggleState extends State<AuthToggle> {
   @override
   Widget build(BuildContext context) {
+    //TODO: Вынести параметры в стиль
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: MediaQuery.of(context).size.width * 0.125,

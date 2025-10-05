@@ -10,10 +10,9 @@ class NailsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(useMaterial3: true).copyWith(
-        brightness: Brightness.dark,
         extensions: [
-          AppThemes.light
-        ]
+          AppThemes.light,
+        ],
       ),
       initialRoute: AppRoutes.auth,
       onGenerateRoute: AppRoutes.generateRoute,

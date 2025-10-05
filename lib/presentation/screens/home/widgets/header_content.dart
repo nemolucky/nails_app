@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class HeaderContent extends StatelessWidget {
-  const HeaderContent({super.key});
+  const HeaderContent({
+    super.key,
+    required this.headerStyle,
+    required this.descriptionStyle,
+  });
+
+  final TextStyle headerStyle;
+  final TextStyle descriptionStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +31,14 @@ class HeaderContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Елизавета", style: TextStyle(fontSize: 24)),
-              Text("Ваш Nail’s мастер\nМосква, 11-Парковая ул, 36"),
+              Text(
+                "Елизавета", 
+                style: headerStyle
+              ),
+              Text(
+                "Ваш Nail’s мастер\nМосква, 11-Парковая ул, 36",
+                style: descriptionStyle,
+              ),
             ],
           ),
         ),

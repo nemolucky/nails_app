@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nails_app/app/routes/app_routes.dart';
-import 'package:nails_app/app/theme/app_theme_data.dart';
-import 'package:nails_app/presentation/widgets/custom_elevated_button.dart';
+import 'package:nails_app/app/theme/theme.dart';
+import 'package:nails_app/presentation/screens/auth/widgets/widgets.dart';
 import 'package:nails_app/presentation/widgets/widgets.dart';
-
-import 'widgets/auth_toggle.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -18,6 +16,8 @@ class _AuthScreenState extends State<AuthScreen> {
   late TextEditingController nameTextController;
   late TextEditingController emailTextController;
   late TextEditingController passwordTextController;
+
+  //TODO: Ручки для авторизации и регистрации пользователя
 
   @override
   void initState() {
@@ -60,6 +60,8 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<AppThemeData>()!;
 
+    //TODO: Подумать над sticky отрисовки виджетов
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(color: theme.scaffoldBackgroundColor),
@@ -74,11 +76,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Column(
                     children: [
                       Spacer(flex: 1),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.3,
-                        ),
-                        child: Image.asset("assets/images/logo.png"),
+                      ImageLogo(
+                        horizontalPadding:
+                            MediaQuery.of(context).size.width * 0.3,
                       ),
                       Spacer(flex: 1),
                       AuthToggle(
@@ -102,24 +102,22 @@ class _AuthScreenState extends State<AuthScreen> {
                           passwordTextController,
                         ),
                       Spacer(flex: 2),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.125,
-                        ),
-                        child: CustomElevatedButton(
-                          //TODO: Доделать кнопку
-                          // Сделать валидацию полей ввода
-                          // Добавить бизнес логику
-                          onPressed: () {
-                            Navigator.pushReplacementNamed(
-                              context,
-                              AppRoutes.main,
-                            );
-                          },
-                          text: isLogin ? "Войти" : "Зарегистрироваться",
-                          elevatedButtonStyle: theme.elevatedButtonStyle,
-                        ),
+                      CustomElevatedButton(
+                        //TODO: Доделать кнопку
+                        // Сделать валидацию полей ввода
+                        // Добавить бизнес логику
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                            context,
+                            AppRoutes.main,
+                          );
+                        },
+                        text: isLogin ? "Войти" : "Зарегистрироваться",
+                        elevatedButtonStyle: theme.elevatedButtonStyle,
+                        horizontalPadding:
+                            MediaQuery.of(context).size.width * 0.125,
                       ),
+
                       Spacer(flex: 3),
                     ],
                   ),
@@ -142,12 +140,14 @@ class _AuthScreenState extends State<AuthScreen> {
         hintText: "Введите электронную почту",
         textFieldStyle: theme.textFieldStyle,
         textEditingController: emailTextController,
+        horizontalPadding: MediaQuery.of(context).size.width * 0.125,
       ),
       Spacer(flex: 1),
       CustomTextField(
         hintText: "Введите пароль",
         textFieldStyle: theme.textFieldStyle,
         textEditingController: passwordTextController,
+        horizontalPadding: MediaQuery.of(context).size.width * 0.125,
       ),
     ];
   }
@@ -163,18 +163,21 @@ class _AuthScreenState extends State<AuthScreen> {
         hintText: "Введите имя пользователя",
         textFieldStyle: theme.textFieldStyle,
         textEditingController: nameTextController,
+        horizontalPadding: MediaQuery.of(context).size.width * 0.125,
       ),
       Spacer(flex: 1),
       CustomTextField(
         hintText: "Введите электронную почту",
         textFieldStyle: theme.textFieldStyle,
         textEditingController: emailTextController,
+        horizontalPadding: MediaQuery.of(context).size.width * 0.125,
       ),
       Spacer(flex: 1),
       CustomTextField(
         hintText: "Введите пароль",
         textFieldStyle: theme.textFieldStyle,
         textEditingController: passwordTextController,
+        horizontalPadding: MediaQuery.of(context).size.width * 0.125,
       ),
     ];
   }

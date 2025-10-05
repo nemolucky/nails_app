@@ -6,23 +6,30 @@ class CustomElevatedButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
+    required this.horizontalPadding,
     required this.elevatedButtonStyle,
   });
 
   final String text;
   final VoidCallback? onPressed;
+  final double horizontalPadding;
   final CustomElevatedButtonStyle elevatedButtonStyle;
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        maxWidth: 450
+    //TODO: Вынести параметры в стиль
+
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: horizontalPadding
       ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: elevatedButtonStyle.style,
-        child: Text(text, style: elevatedButtonStyle.textStyle),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: 450),
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: elevatedButtonStyle.style,
+          child: Text(text, style: elevatedButtonStyle.textStyle),
+        ),
       ),
     );
   }
